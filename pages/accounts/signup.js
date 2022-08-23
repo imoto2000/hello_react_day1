@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-import { useAuth } from "../context/AuthUserContext";
+import { useAuth } from "../../context/AuthUserContext";
 // import { auth } from "../lib/firebase";
 // import { createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -36,7 +36,7 @@ const SignUp = () => {
       _createUserWithEmailAndPassword(email, passwordOne)
         .then((data) => {
           console.log("Success. The user is created in firebase");
-          router.push("/logged_in");
+          router.push("/");
         })
         .catch((error) => {
           console.log(">>>>> error", error);
@@ -49,6 +49,7 @@ const SignUp = () => {
 
   return (
     <Container className="text-center" style={{ padding: "40px 0px" }}>
+      <h3>アカウント作成</h3>
       <Row>
         <Col>
           <Form
