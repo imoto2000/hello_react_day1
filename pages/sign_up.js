@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { useAuth } from "../context/AuthUserContext";
-import { auth } from "../lib/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "../lib/firebase";
+// import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import {
   Container,
@@ -25,7 +25,7 @@ const SignUp = () => {
   //Optional error handling
   const [error, setError] = useState(null);
 
-  // const { createUserWithEmailAndPassword } = useAuth();
+  const { _createUserWithEmailAndPassword } = useAuth();
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -33,7 +33,7 @@ const SignUp = () => {
     setError(null);
 
     if (passwordOne === passwordTwo) {
-      createUserWithEmailAndPassword(auth, email, passwordOne)
+      _createUserWithEmailAndPassword(email, passwordOne)
         .then((data) => {
           console.log("Success. The user is created in firebase");
           router.push("/logged_in");

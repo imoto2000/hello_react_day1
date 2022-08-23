@@ -1,25 +1,24 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "../context/AuthUserContext";
-
 import { Container, Row, Col, Button } from "reactstrap";
 
-import { auth } from "../lib/firebase";
-import { signOut } from "firebase/auth";
-
 const LoggedIn = () => {
-  const { authUser, loading } = useAuth();
+  const { authUser, loading, _signOut } = useAuth();
   const router = useRouter();
 
   // Listen for changes on loading and authUser, redirect if needed
   useEffect(() => {
+    console.log(">>>>>> called loading", loading);
+    console.log(">>>>>> called authUser", authUser);
+
     if (!loading && !authUser) {
       router.push("/");
     }
   }, [authUser, loading, router]);
 
   const logOut = () => {
-    signOut(auth);
+    _signOut();
   };
 
   return (

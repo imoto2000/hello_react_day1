@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 
 import { useAuth } from "../context/AuthUserContext";
 
-import { auth } from "../lib/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "../lib/firebase";
+// import { signInWithEmailAndPassword } from "firebase/auth";
 
 import {
   Container,
@@ -24,13 +24,13 @@ export default function Home() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const router = useRouter();
-  // const { signInWithEmailAndPassword } = useAuth();
+  const { _signInWithEmailAndPassword } = useAuth();
 
   const onSubmit = (event) => {
     event.preventDefault();
 
     setError(null);
-    signInWithEmailAndPassword(auth, email, password)
+    _signInWithEmailAndPassword(email, password)
       .then((authUser) => {
         console.log("Success. The user is created in firebase");
         router.push("/logged_in");
