@@ -14,10 +14,7 @@ console.log(">>>>>>>>>> called firebase.js", config);
 
 const apps = getApps();
 if (!apps.length) {
-  console.log(">>>>>>>> called firebase initializeApp");
-  const app = initializeApp(config);
-} else {
-  const app = apps[0];
+  initializeApp(config);
 }
 
 const db = getFirestore();

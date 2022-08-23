@@ -5,7 +5,7 @@ import Link from "next/link";
 const Header = () => {
   const { authUser, loading, _signOut } = useAuth();
   const router = useRouter();
-  console.log(">>>>>> authUser", authUser);
+  console.log(">>>>>>>>>>>>>> authUser", authUser);
 
   const logOut = () => {
     _signOut();
