@@ -1,4 +1,4 @@
-import { useAuth } from "../../context/AuthUserContext";
+import { useAuth } from "@/context/AuthUserContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
 

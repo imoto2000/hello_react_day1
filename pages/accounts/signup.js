@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-import { useAuth } from "../../context/AuthUserContext";
-// import { auth } from "../lib/firebase";
-// import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useAuth } from "@/context/AuthUserContext";
 
 import {
   Container,
